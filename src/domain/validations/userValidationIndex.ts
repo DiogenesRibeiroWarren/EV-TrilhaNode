@@ -1,5 +1,5 @@
-import { UserValidate } from './UserValidations'
+import { UserValidate } from './UserValidations';
 
-const userValidateInstance = new UserValidate
+const userValidateInstance = new UserValidate;
 
-export { userValidateInstance }
+export { userValidateInstance };

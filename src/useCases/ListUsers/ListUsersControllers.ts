@@ -1,18 +1,18 @@
-import { Request, Response } from 'express'
+import { Request, Response } from 'express';
 
-import { UserMock } from '../../domain/user/mocks/User'
+import { UserMock } from '../../domain/user/mocks/User';
 
-export class ListUser{
+export class ListUser {
 
-    list(req: Request, res: Response){
+    list(req: Request, res: Response) {
 
-        try{
+        try {
 
-            res.status(201).send(UserMock)
+            res.status(201).send(UserMock);
 
-        }catch(e: any){
+        } catch (e: any) {
 
-            return res.status(500).send('Unxpected error')
+            return res.status(500).send('Unxpected error');
 
         }
 

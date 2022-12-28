@@ -1,5 +1,5 @@
-import { ListUser } from './ListUsersControllers'
+import { ListUser } from './ListUsersControllers';
 
-const listUserUseCase = new ListUser()
+const listUserUseCase = new ListUser();
 
-export { listUserUseCase }
+export { listUserUseCase };

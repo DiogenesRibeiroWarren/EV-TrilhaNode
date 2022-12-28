@@ -1,4 +1,4 @@
-import { object, string, date, number, boolean, ref } from "yup";
+import { object, string, date, number, boolean, ref } from 'yup';
 
 const userSchema = object().shape({
 
@@ -19,6 +19,6 @@ const userSchema = object().shape({
     address: string().required(),
     number: number().required()
 
-})
+});
 
-export { userSchema }
+export { userSchema };

@@ -1,3 +1,3 @@
-const UserMock: Object[] = []
+const UserMock: Array<any> = [];
 
-export { UserMock }
+export { UserMock };
