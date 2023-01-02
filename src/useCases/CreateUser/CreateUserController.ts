@@ -1,11 +1,14 @@
 import { Request, Response } from 'express';
+import { inject, injectable } from 'tsyringe';
 
-import { CreateUserUseCase } from './CreateUserUseCase';
+import { ICreateUserRepository } from '../../repositories/ICreateUserRepository';
 import { ICreateUserDTO } from './CreateUserDTO';
 
+@injectable()
 export class CreateUerController {
     constructor(
-        private createUserUseCase: CreateUserUseCase
+        @inject("CreateUserRepository")
+        private createUser: ICreateUserRepository
     ) { }
 
     handle(req: Request, res: Response) {
@@ -13,7 +16,7 @@ export class CreateUerController {
         const userData: ICreateUserDTO = req.body;
 
         try {
-            this.createUserUseCase.create(userData);
+            this.createUser.save(userData)
             return res.status(201).send('User created');
         } catch (e: any) {
             console.log(e);
