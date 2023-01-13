@@ -1,9 +1,9 @@
-import { CreateUerController } from './CreateUserController';
+import { CreateUserController } from './CreateUserController';
 
 import { container } from 'tsyringe'
 import { CreateUserService } from './CreateUserService';
 
-const createUserController = new CreateUerController(
+const createUserController = new CreateUserController(
     container.resolve(CreateUserService)
 );
 

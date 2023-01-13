@@ -2,7 +2,7 @@ import 'reflect-metadata'
 
 import { Request, Response } from 'express'
 
-import { CreateUerController } from './CreateUserController'
+import { CreateUserController } from './CreateUserController'
 import { CreateUserService } from './CreateUserService'
 import { CreateUserRepository } from '../../repositories/implementations/CreateUserRepository'
 import { userData } from '../../domain/userMocked/userMocked'
@@ -18,7 +18,7 @@ const mockResponse = {
 
 const createUserRepository = new CreateUserRepository()
 const createUserService = new CreateUserService(createUserRepository)
-const createUserController = new CreateUerController(createUserService)
+const createUserController = new CreateUserController(createUserService)
 
 describe('Create User Controller', () => {
 

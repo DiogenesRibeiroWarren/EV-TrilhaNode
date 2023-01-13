@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { User } from '../../entities/User';
 import { CreateUserService } from './CreateUserService';
 
-export class CreateUerController {
+export class CreateUserController {
     constructor(
         private createUserService: CreateUserService
     ) { }
@@ -16,7 +16,8 @@ export class CreateUerController {
             this.createUserService.execute(userData)
             return res
         } catch (e: any) {
-            console.log(e);
+            res.status(500).send('Unexpected Error')
+            console.log(e)
         }
     }
 }

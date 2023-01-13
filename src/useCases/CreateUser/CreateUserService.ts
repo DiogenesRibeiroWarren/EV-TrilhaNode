@@ -3,7 +3,6 @@ import { inject, injectable } from "tsyringe";
 import { User } from "../../entities/User";
 import { ICreateUserRepository } from "../../repositories/ICreateUserRepository";
 
-@injectable()
 export class CreateUserService {
 
     constructor(
