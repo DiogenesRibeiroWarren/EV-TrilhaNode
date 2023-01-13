@@ -29,15 +29,15 @@ describe('Create User', () => {
 
     const user = createUserService.execute(userDataInstance)
 
-    it('Deve conter a propriedade props', () => {
+    it('Should contain proprietary props', () => {
         expect(user).toHaveProperty('props')
     })
 
-    it('Deve ser uma instância de User', () => {
+    it('Should be an instance of User', () => {
         expect(user).toBeInstanceOf(User)
     })
 
-    it('Deve ser do tipo String', () => {
+    it('Should be of type String', () => {
         expect(typeof user.props.email).toEqual('string')
     })
 

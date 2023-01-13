@@ -33,7 +33,7 @@ const createUserRepository = new CreateUserRepository()
 const createUserService = new CreateUserService(createUserRepository)
 const createUserController = new CreateUerController(createUserService)
 
-describe('Should be OK', () => {
+describe('Create User Controller', () => {
 
     const response = createUserController.handle(mockRequest, mockResponse)
 
