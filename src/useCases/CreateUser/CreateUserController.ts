@@ -1,25 +1,23 @@
 import { Request, Response } from 'express';
-import { inject, injectable } from 'tsyringe';
 
-import { ICreateUserRepository } from '../../repositories/ICreateUserRepository';
-import { ICreateUserDTO } from './CreateUserDTO';
+import { User } from '../../entities/User';
+import { CreateUserService } from './CreateUserService';
 
-@injectable()
-export class CreateUerController {
+export class CreateUserController {
     constructor(
-        @inject("CreateUserRepository")
-        private createUser: ICreateUserRepository
+        private createUserService: CreateUserService
     ) { }
 
     handle(req: Request, res: Response) {
 
-        const userData: ICreateUserDTO = req.body;
+        const userData: User = req.body;
 
         try {
-            this.createUser.save(userData)
-            return res.status(201).send('User created');
+            this.createUserService.execute(userData)
+            return res
         } catch (e: any) {
-            console.log(e);
+            res.status(500).send('Unexpected Error')
+            console.log(e)
         }
     }
 }

@@ -1,5 +1,5 @@
 import { User } from "../entities/User"
 
 export interface ICreateUserRepository {
-    save(user: User): void
+    save(user: User): User
 }

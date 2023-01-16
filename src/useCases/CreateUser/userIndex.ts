@@ -1,10 +1,10 @@
-import { CreateUerController } from './CreateUserController';
+import { CreateUserController } from './CreateUserController';
 
 import { container } from 'tsyringe'
-import { CreateUserRepository } from '../../repositories/implementations/CreateUserRepository';
+import { CreateUserService } from './CreateUserService';
 
-const createUserController = new CreateUerController(
-    container.resolve(CreateUserRepository)
+const createUserController = new CreateUserController(
+    container.resolve(CreateUserService)
 );
 
 export { createUserController };
