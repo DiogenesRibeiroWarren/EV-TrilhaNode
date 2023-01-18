@@ -8,9 +8,9 @@ export class CreateUserController {
         private createUserService: CreateUserService
     ) { }
 
-    async handle(req: Request, res: Response) {
+    handle(req: Request, res: Response) {
 
-        const userData: User = await req.body;
+        const userData: User = req.body;
 
         try {
             this.createUserService.execute(userData)
