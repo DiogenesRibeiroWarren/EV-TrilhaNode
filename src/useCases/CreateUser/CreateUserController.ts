@@ -8,12 +8,14 @@ export class CreateUserController {
         private createUserService: CreateUserService
     ) { }
 
-    handle(req: Request, res: Response) {
+    async handle(req: Request, res: Response) {
 
-        const userData: User = req.body;
+        const userData: User = await req.body;
 
         try {
             this.createUserService.execute(userData)
+            res.json(userData)
+
             return res
         } catch (e: any) {
             res.status(500).send('Unexpected Error')
