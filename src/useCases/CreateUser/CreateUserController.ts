@@ -14,6 +14,8 @@ export class CreateUserController {
 
         try {
             this.createUserService.execute(userData)
+            res.json(userData)
+
             return res
         } catch (e: any) {
             res.status(500).send('Unexpected Error')

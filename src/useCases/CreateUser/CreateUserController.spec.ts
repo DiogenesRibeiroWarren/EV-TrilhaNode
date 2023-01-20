@@ -1,35 +1,32 @@
 import 'reflect-metadata'
+import request from 'supertest'
 
-import { Request, Response } from 'express'
+import { app } from '../../main'
+import { userDataMocked } from '../../domain/userDataMocked/userDataMocked'
 
-import { CreateUserController } from './CreateUserController'
-import { CreateUserService } from './CreateUserService'
-import { CreateUserRepository } from '../../repositories/implementations/CreateUserRepository'
-import { userData } from '../../domain/userMocked/userMocked'
+describe('Integration test /customer', () => {
 
-const mockRequest = {
-    body: userData
-} as Request;
+    it('Should be able create a new User', async () => {
 
-const mockResponse = {
-    json: mockRequest.body,
-    status: 201
-} as unknown as Response;
+        const response = await request(app)
+            .post('/customer')
+            .send(userDataMocked)
 
-const createUserRepository = new CreateUserRepository()
-const createUserService = new CreateUserService(createUserRepository)
-const createUserController = new CreateUserController(createUserService)
+        expect(response.header['content-type']).toMatch('application/json')
+        expect(response.body.email).toEqual(response.body.emailConfirmation)
+        expect(response.status).toEqual(200)
 
-describe('Create User Controller', () => {
-
-    const response = createUserController.handle(mockRequest, mockResponse)
-
-    it('Should return a json', () => {
-        expect(response).toHaveProperty('json')
     })
 
-    it('Should have property status code', () => {
-        expect(response).toHaveProperty('status')
+    it('Should return a ERROR 404', async () => {
+
+        const response = await request(app)
+            .post('/customer')
+            .send()
+
+        expect(response.status).toEqual(404)
+        expect(response.body).toHaveProperty('erro')
+
     })
 
 })
