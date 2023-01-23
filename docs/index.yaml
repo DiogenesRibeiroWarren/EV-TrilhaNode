@@ -9,21 +9,23 @@ info:
   contact:
     email: diogenes.ribeiro@warren.com.br
   version: 1.0.0
-externalDocs: https://github.com/DiogenesRibeiroWarren/EV-TrilhaNode
+externalDocs:
+  description: SOLID API - Create User
+  url: https://github.com/DiogenesRibeiroWarren/EV-TrilhaNode
 
-servers:
-  - url: http://localhost:8080/docs
+servers: [{ url: http://localhost:8080/customer }]
 
 tags:
-  name: Usuário
-  description: Rota responsável por lidar e manipular os dados do usuário
+  - name: Usuário
+    description: Rota responsável por lidar e manipular os dados do usuário
 
 paths:
   /customer:
     post:
       summary: Cadastro de usuário
       description: Essa rota será reponável por criar um novo usuário e inserir no Array Mockado
-      tags": -Usuário
+      tags:
+        - Usuário
 
       requestBody:
         description: Corpo da requisição
@@ -47,7 +49,7 @@ paths:
 components:
   schemas:
     Usuario:
-      type": object
+      type: object
       properties:
         fullName:
           type: string
