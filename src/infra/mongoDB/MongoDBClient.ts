@@ -14,13 +14,8 @@ export class DataBaseClient implements IDatabaseClient {
     private db: Db = this.client.db('User')
 
     async connect(): Promise<any> {
-
-        try {
-            await this.client.connect()
-            console.log('Connected successfully to server')
-        } catch (e: any) {
-            console.log(e)
-        }
+        await this.client.connect()
+        console.log('Connected successfully to server')
 
         return 'done.'
     }
