@@ -6,7 +6,7 @@ dotenv.config({
     path: __dirname + '../../../.env'
 })
 
-const dbUri: string = process.env.MONGO_URI
+const dbUri: string = process.env.MONGO_URI as string
 
 export class DataBaseClient implements IDatabaseClient {
 
