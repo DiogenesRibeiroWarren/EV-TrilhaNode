@@ -5,10 +5,12 @@ import { dataBaseClienteInstance } from "../../infra/mongoDB/indexMongoDBClient"
 
 export class CreateUserRepository implements ICreateUserRepository {
 
-    async save(user: User): Promise<User> {
-        const collection = dataBaseClienteInstance.getCollection('customer')
-        await collection.insertMany([user])
+    private getCustomer() {
+        return dataBaseClienteInstance.getCollection('customer')
+    }
 
+    async save(user: User): Promise<User> {
+        this.getCustomer().insertMany([user])
         return user
     }
 
