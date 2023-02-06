@@ -1,4 +1,4 @@
-<h1> [Everest Node] - API DE CADASRTRO </h1>
+<h1> [Everest Node] - API DE CADASTRO </h1>
 
 <p>
 Nesse repositório é criada uma API para cadastro de usuários
