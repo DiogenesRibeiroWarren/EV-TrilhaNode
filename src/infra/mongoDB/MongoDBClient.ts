@@ -1,10 +1,9 @@
 import { IDatabaseClient } from "../../repositories/IDataBaseClienteRepository";
 import { MongoClient, Db } from "mongodb";
+
 import dotenv from 'dotenv'
 
-dotenv.config({
-    path: __dirname + '../../../.env'
-})
+dotenv.config({ path: __dirname + '../../../.env' })
 
 const dbUri: string = process.env.MONGO_URI as string
 
@@ -26,6 +25,10 @@ export class DataBaseClient implements IDatabaseClient {
 
     getInstance(): Db {
         return this.db
+    }
+
+    getCollection(name: string) {
+        return this.db.collection(name)
     }
 
 }
