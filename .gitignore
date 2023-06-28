@@ -3,5 +3,3 @@ tsconfig.json
 
 /coverage
 jest.config.ts
-
-.env

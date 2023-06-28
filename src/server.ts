@@ -1,12 +1,7 @@
-import { dataBaseClienteInstance } from "./infra/mongoDB/indexMongoDBClient";
 import { app } from "./main";
 
-const PORT = process.env.PORT;
+const PORT = 8080;
 
-app.listen(PORT, async () => {
-    await dataBaseClienteInstance.connect()
-        .then(console.log)
-        .catch(() => dataBaseClienteInstance.close())
-
-    console.log(`Server running on port: ${PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
 });
